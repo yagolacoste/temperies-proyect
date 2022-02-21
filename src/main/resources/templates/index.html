@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>indice</h1>
+        <a th:href="@{/agregar}">Crear Persona</a>
+        <div th:if="${personas !=null and  !personas.empty}">
+            <table border="1">
+                <tr>
+                    <tr>Nombre</tr>
+                </tr>
+                <tr th:each="PersonaModel : ${personas}">
+                    <td th:text="{PersonaModel.nombre}">mostrar nombre</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            la lista esta vacia
+        </div>
+    </body>
+</html>
